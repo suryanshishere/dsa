@@ -9,7 +9,8 @@ public class Main {
         // myDLL.set(2,500);
         // System.out.println(myDLL.get(2).val);
         myDLL.insert(1, 500);
-
+        myDLL.remove(1);
+        
         myDLL.getHead();
         myDLL.getTail();
         myDLL.length();

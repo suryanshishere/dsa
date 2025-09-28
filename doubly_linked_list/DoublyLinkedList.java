@@ -114,17 +114,18 @@ public class DoublyLinkedList {
         return false;
     }
 
-    public boolean insert(int index, int value){
-        if(index < 0 || index > length) return false;
-        if(index == 0) {
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length)
+            return false;
+        if (index == 0) {
             prepend(value);
             return true;
         }
-        if(index == length){
+        if (index == length) {
             append(value);
             return true;
         }
-        Node tempBefore = get(index-1);
+        Node tempBefore = get(index - 1);
         Node temp = tempBefore.next;
         Node newNode = new Node(value);
         newNode.prev = tempBefore;
@@ -132,6 +133,27 @@ public class DoublyLinkedList {
         tempBefore.next = newNode;
         length++;
         return true;
+    }
+
+    public Node remove(int index) {
+        if (index < 0 && index > length)
+            return null;
+        if (index == 0)
+            return removeFirst();
+        if (index == length - 1)
+            return removeLast();
+
+        Node temp = get(index);
+        Node tempBefore = temp.prev;
+        Node tempAfter = temp.next;
+
+        tempBefore.next = tempAfter;
+        tempAfter.prev = tempBefore;
+        temp.next = null;
+        temp.prev = null;
+        length--;
+
+        return temp;
     }
 
     public void printList() {
