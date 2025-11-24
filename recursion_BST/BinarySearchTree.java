@@ -75,26 +75,25 @@ public class BinarySearchTree {
     }
 
     private Node deleteNode(Node currentNode, int value) {
-        if (currentNode == null)
-            return null;
-        if (value < currentNode.val) {
+        if (currentNode == null) return null;
+        if(value < currentNode.val){
             currentNode.left = deleteNode(currentNode.left, value);
-        } else if (value > currentNode.val) {
+        }else if (value > currentNode.val){
             currentNode.right = deleteNode(currentNode.right, value);
-        } else {
-            // leaf node check
-            if (currentNode.left == null && currentNode.right == null) {
+        }else{
+            if(currentNode.left == null & currentNode.right == null){
                 return null;
-            } else if (currentNode.left == null) { // right child is there
-                currentNode = currentNode.right;
-            } else if (currentNode.right == null) { // left child is there
+            }else if (currentNode.right == null){
                 currentNode = currentNode.left;
-            } else { // children nodes are there
-                int subTreeMin = minValue(currentNode);
-                currentNode.val = subTreeMin;
-                currentNode.right = deleteNode(currentNode.right, subTreeMin);
+            }else if (currentNode.left == null){
+                currentNode = currentNode.right;
+            }else {
+                int minSubTree = minValue(currentNode.right);
+                currentNode.val = minSubTree;
+                currentNode.right = deleteNode(currentNode.right, minSubTree);
             }
         }
+
         return currentNode;
     }
 
