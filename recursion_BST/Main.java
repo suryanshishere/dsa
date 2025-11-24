@@ -8,6 +8,8 @@ public class Main {
         myBST.rInsert(40);
         myBST.rInsert(25);
 
-        System.out.println(myBST.rContains(32));
+        // myBST.deleteNode(40);
+
+        System.out.println(myBST.rContains(40));
     }
 }
