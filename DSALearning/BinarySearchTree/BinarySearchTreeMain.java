@@ -16,16 +16,20 @@ public class BinarySearchTreeMain {
 //        // System.out.println("Root: " + myBST.root.right.right.val);
 //        System.out.println("Contains: 40 " + myBST.contains(450));
 
-        myBST.rInsert(10);
-        myBST.rInsert(30);
-        myBST.rInsert(5);
-        myBST.rInsert(40);
-        myBST.rInsert(25);
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(76);
+        myBST.rInsert(18);
+        myBST.rInsert(27);
+        myBST.rInsert(52);
+        myBST.rInsert(82);
 
         // myBST.deleteNode(40);
 
 //        System.out.println(myBST.rContains(40));
 
-        Common.printArray(myBST.BFS());
+//        Common.printArray("BFS", myBST.BFS());
+//        Common.printArray("PreOrder BFS:", myBST.BFSpreOrder());
+//        Common.printArray("BFS inOrder:", myBST.BFSinOrder());
     }
 }
